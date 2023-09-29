@@ -1,9 +1,13 @@
-import NavBar from './NavBar.jsx'
 
 const ItemListContainer = () => {
     return (
         <>
-            <NavBar />
+            <div>
+                <h2>Productos:</h2>
+                <div>
+                    
+                </div>
+            </div>
         </>
     )
 }

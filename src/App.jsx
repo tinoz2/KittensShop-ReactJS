@@ -1,9 +1,13 @@
-import ItemListContainer from "./components/ItemListContainer"
+import NavBar from "./components/NavBar"
+import ItemListContainer from './components/ItemListContainer'
 
 const App = () => {
     return (
         <>
-            <ItemListContainer />
+            <div>
+                <NavBar />
+                <ItemListContainer />
+            </div>
         </>
     )
 }
