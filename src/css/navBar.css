@@ -1,0 +1,31 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #fdb095;
+    font-family: 'Bebas Neue', sans-serif;
+}
+.navbar-style{
+    background-color: #210440 !important;
+}
+.nav-link, h1{
+    color: white;
+    font-size: 1.5rem;
+    margin: 1rem 2rem 1rem 2rem;
+}
+h1{
+    font-size: 2.5rem;
+}
+.nav-link{
+    cursor: pointer;
+}
+.number-style{
+    margin: 0 0.5rem 0 0.5rem;
+}
+.nav-items{
+    display: flex;
+    justify-content: end;
+    width: 100%;
+}
