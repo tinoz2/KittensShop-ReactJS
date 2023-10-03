@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { FontAwesomeIcon } from '@fortawesome/fontawesome-svg-core'
 
 const CartWidget = () => {
 
@@ -6,9 +7,9 @@ const CartWidget = () => {
 
     return (
         <>
-        <li className="nav-item">
-            <span className="nav-link"><i class="fa-solid fa-bag-shopping number-style"></i>{numberCart}</span>
-        </li>
+            <li className="nav-item">
+                <span className="nav-link"><FontAwesomeIcon className="number-style" icon="fa-solid fa-bag-shopping" />{numberCart}</span>
+            </li>
         </>
     )
 }

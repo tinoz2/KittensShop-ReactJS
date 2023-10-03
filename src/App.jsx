@@ -6,7 +6,7 @@ const App = () => {
         <>
             <div>
                 <NavBar />
-                <ItemListContainer />
+                <ItemListContainer greeting="Product" />
             </div>
         </>
     )
