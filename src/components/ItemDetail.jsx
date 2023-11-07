@@ -1,38 +1,53 @@
 import { useParams } from "react-router-dom"
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
+import { LogicContext } from "../context/LogicCartContext";
 
 const ItemDetail = ({ productos }) => {
-
-    const [counter, setCounter] = useState(1)
-
-    const less = () => {
-        if(counter >= 2){
-            setCounter(counter - 1)
-        }
-    }
-
-    const more = () => {
-        setCounter(counter + 1)
-    }
-
+    
     const { id } = useParams()
 
     const filter = productos.filter((producto) => producto.id == id)
+
+    const { addToCart, idP} = useContext(LogicContext)
+
+    const addedToCart = (buy) => {
+        for (let i = 0; i < counter; i++) {
+            addToCart(buy);
+        }
+    }
     
+
+    const [counter, setCounter] = useState(1)
+
+    const handleLess = () => {
+        if (counter > 1) {
+            setCounter(counter - 1);
+        }
+    }
+
+    const handleMore = () => {
+        if (counter < 10 ){
+            setCounter(counter + 1)
+        };
+    }
+
     return (
         <>
             {
                 filter.map((p) => {
                     return (
-                        <Card key={p.id} className='card'>
+                        <Card key={idP} className='card'>
                             <Card.Img className='card-img' src={p.image} />
                             <Card.Body>
                                 <Card.Title>{p.title}</Card.Title>
                                 <Card.Title>$ {p.price}</Card.Title>
                                 <Card.Text>{p.description}</Card.Text>
-                                <Button onClick={less}>-</Button><Card.Text>{counter}</Card.Text> <Button onClick={more}>+</Button>
+                                <div className="div-buttons-moreless">
+                                    <Button onClick={handleLess}>-</Button><p className="counter">{counter}</p> <Button onClick={handleMore}>+</Button>
+                                </div>
+                                <Button onClick={() => addedToCart(p)} className="btn btn-success">Add to cart</Button>
                             </Card.Body>
                         </Card>
                     )

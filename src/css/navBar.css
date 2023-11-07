@@ -4,12 +4,15 @@
     box-sizing: border-box;
 }
 body{
-    background-color: black;
+    background-color: #29282c;
+    color: white;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 .cart-cartWidget{
     display: flex;
     align-items: center;
+    text-align: center;
+    justify-content: center;
 }
 .card{
     display: flex;
@@ -27,4 +30,49 @@ body{
 .card-grid{
     display: grid;
     grid-template-columns: repeat(4,1fr);
+}
+.div-buttons-moreless{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem;
+}
+.counter{
+    font-size: 1.5rem;
+    margin: 1rem;
+}
+.button-add{
+    background-color: green;
+    border: none;
+    padding: 0.75rem;
+    transition: 0.3s ease all;
+}
+a{
+    text-decoration: none;
+}
+h1{
+    text-transform: uppercase;
+    color: #f7bb0e;
+    font-weight: 900;
+    margin: 1rem;
+}
+.navbar-2{
+    background-color: #29282c !important;
+    border-bottom: 2px solid white;
+}
+.nav-link{
+    color: white;
+}
+.container-btn-cart{
+    display: flex;
+    justify-content: center;
+    margin: 2rem;
+}
+.btn-myclass{
+    margin: 0 1rem;
+}
+form{
+    width: 30%;
+    margin: 0 auto;
 }

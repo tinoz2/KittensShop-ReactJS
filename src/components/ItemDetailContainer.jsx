@@ -1,29 +1,25 @@
-import ItemDetail from "./ItemDetail.jsx"
-import { useState, useEffect } from "react"
+import ItemDetail from "./ItemDetail.jsx";
+import { useState, useEffect } from "react";
+import { collection, getDocs, getFirestore } from 'firebase/firestore';
 
 const ItemDetailContainer = () => {
-
-    const fetchData = async () => {
-        try{
-            const response = await fetch('https://fakestoreapi.com/products')
-            const data = await response.json()
-            return data
-        }catch(error){
-            console.error('error en tu data', error)
-        }
-    }
     
-    const [productos, setProductos] = useState([])
-
+    const [productos, setProductos] = useState([]);
+    
     useEffect(() => {
-        fetchData().then((product) => setProductos(product))
-    }, [])
+        const db = getFirestore();
+        const itemsCollection = collection(db, "productos");
+        getDocs(itemsCollection).then((snapshot) => {
+            const docs = snapshot.docs.map((doc) => doc.data());
+            setProductos(docs);
+        });
+    }, []);
 
     return (
         <div>
             <ItemDetail productos={productos} />
         </div>
-    )
+    );
 }
 
-export default ItemDetailContainer
+export default ItemDetailContainer;

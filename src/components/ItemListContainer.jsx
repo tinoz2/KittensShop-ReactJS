@@ -1,37 +1,37 @@
-import { useParams } from "react-router-dom"
 import ItemList from "./ItemList"
-import { useState, useEffect } from "react"
+import { useEffect, useState } from "react"
+import { useParams } from "react-router-dom"
+import { collection, getDocs, getFirestore } from 'firebase/firestore'
 
 const ItemListContainer = () => {
 
     const { categoryID } = useParams()
 
-    const fetchData = async () => {
-        try {
-            const response = await fetch('https://fakestoreapi.com/products')
-            const data = await response.json()
-            return data
-        } catch (error) {
-            console.error('error en tu data', error)
-        }
-    }
-
     const [productos, setProductos] = useState([])
 
+    const [filteredProductos, setFilteredProductos] = useState([])
+
     useEffect(() => {
-        fetchData().then((data) => {
-            if (categoryID !== undefined) {
-                const filteredProducts = data.filter(producto => producto.category === categoryID)
-                setProductos(filteredProducts)
-            } else {
-                setProductos(data);
-            }
-        });
-    }, [categoryID])
+        const db = getFirestore()
+        const itemsCollection = collection(db, "productos")
+        getDocs(itemsCollection).then((snapshot) => {
+            const docs = snapshot.docs.map((doc) => doc.data())
+            setProductos(docs)
+        })
+    }, [])
+
+    useEffect(() => {
+        if (categoryID) {
+            const filteredProducts = productos.filter(producto => producto.category === categoryID)
+            setFilteredProductos(filteredProducts)
+        } else {
+            setFilteredProductos(productos)
+        }
+    }, [categoryID, productos])
 
     return (
         <>
-            <ItemList productos={productos} />
+            <ItemList productos={filteredProductos} />
         </>
     )
 }

@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 
 const NavBar = () => {
     return (
-        <Navbar expand="lg" className="bg-body-tertiary">
+        <Navbar expand="lg" className="bg-body-tertiary navbar-2">
             <Link to={'/'}>
                 <h1>Kittens</h1>
             </Link>
@@ -20,13 +20,15 @@ const NavBar = () => {
                         <Nav.Link>Help</Nav.Link>
                         <NavDropdown title="Dropdown" id="basic-nav-dropdown">
                             <NavDropdown.Item><Link to={`/category/men's clothing`}>men's clothing</Link></NavDropdown.Item>
-                            <NavDropdown.Item><Link to={`/category/jewelery`}>jewelery</Link></NavDropdown.Item>
-                            <NavDropdown.Item><Link to={`/category/electronics`}>electronics</Link></NavDropdown.Item>
+                            <NavDropdown.Item><Link to='/category/jewelery'>jewelery</Link></NavDropdown.Item>
+                            <NavDropdown.Item><Link to='/category/electronics'>electronics</Link></NavDropdown.Item>
                             <NavDropdown.Item><Link to={`/category/women's clothing`}>women's cloting</Link></NavDropdown.Item>
                         </NavDropdown>
-                        <Link to={'/cart'}>
-                            <CartWidget />
-                        </Link>
+                        <div className='cart-cartWidget'>
+                            <Link to={'/cart'}>
+                                <CartWidget />
+                            </Link>
+                        </div>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
