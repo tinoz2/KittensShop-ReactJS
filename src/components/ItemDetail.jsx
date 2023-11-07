@@ -18,7 +18,6 @@ const ItemDetail = ({ productos }) => {
         }
     }
     
-
     const [counter, setCounter] = useState(1)
 
     const handleLess = () => {

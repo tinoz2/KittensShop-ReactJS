@@ -81,11 +81,8 @@ const Cart = () => {
                                 <Form.Control type="email" placeholder="Enter email" onChange={(e) => setEmail(e.target.value)} />
                             </Form.Group>
                             <Form.Group className="mb-3" controlId="formBasicPassword">
-                                <Form.Label>Password</Form.Label>
-                                <Form.Control type="password" placeholder="Password" onChange={(e) => setNombre(e.target.value)} />
-                            </Form.Group>
-                            <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                                <Form.Check type="checkbox" label="Check me out" />
+                                <Form.Label>Full Name</Form.Label>
+                                <Form.Control type="name" placeholder="Full Name" onChange={(e) => setNombre(e.target.value)} />
                             </Form.Group>
                             <Button variant="primary" type="submit">
                                 Submit
