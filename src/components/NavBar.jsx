@@ -25,13 +25,16 @@ const NavBar = () => {
                             <NavDropdown.Item><Link to={`/category/women's clothing`}>women's cloting</Link></NavDropdown.Item>
                         </NavDropdown>
                         <div className='cart-cartWidget'>
-                            <Link to={'/cart'}>
+                            <Link to='/cart'>
                                 <CartWidget />
                             </Link>
                         </div>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
+            <div className='container-login-text'>
+                <Link className='login-text' to='/login'>Log In</Link>
+            </div>
         </Navbar>
     );
 }

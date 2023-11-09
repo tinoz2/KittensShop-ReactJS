@@ -76,3 +76,17 @@ form{
     width: 30%;
     margin: 0 auto;
 }
+.container-login-text{
+    margin-right: 2rem;
+}
+.login-text{
+    font-size: 1.5rem;
+    color: white;
+    padding: 0.5rem;
+    border-bottom: 1px solid #f7bb0e;
+}
+.container-login{
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+}
