@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import './css/navBar.css'
+import './css/main.css'
 import App from './App'
 import { initializeApp } from "firebase/app";
 import { getAuth } from 'firebase/auth'

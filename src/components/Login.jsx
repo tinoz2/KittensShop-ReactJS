@@ -40,7 +40,7 @@ const Login = () => {
         loginWithGoogle()
     }
 
-    const handleLogout = () =>{
+    const handleLogout = () => {
         logout()
     }
 
@@ -63,13 +63,13 @@ const Login = () => {
                     <Button onClick={(e) => handleGoogle(e)} className='btn-danger'>Google</Button>
                 </div>
             </form>
-            <div style={{textAlign: 'center', marginTop: '2rem'}}>
+            <div style={{ textAlign: 'center', marginTop: '2rem' }}>
                 {user && user.displayName && (
-                    <h6>Welcome, {user.displayName}!</h6>
+                    <>
+                        <h6>Welcome, {user.displayName}!</h6>
+                        <Button onClick={() => handleLogout()} className='btn-danger'>Logout</Button>
+                    </>
                 )}
-            </div>
-            <div style={{textAlign: 'center'}}>
-                <Button onClick={() => handleLogout()} className='btn-danger'>Logout</Button>
             </div>
         </div>
     )
